@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>iOS摇一摇截屏功能的实现 - grq186 的Blog - 日出东方，唯我不败</title>
+  <link rel="alternate" hreflang="zh-cn" href="http://GoldenRocking.github.io/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Rocky" />
+  <meta name="description" content="1.摇一摇功能的实现： 在viewDidLoad方法中调用： 1 [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES]; 在viewWillAppear方法中调用： 1 [self becomeFirstResponder]; 为了防止意外发生，需要在v" />
+
+  <meta name="keywords" content="grq186, iOS, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.2" />
+
+
+<link rel="canonical" href="http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="iOS摇一摇截屏功能的实现" />
+<meta property="og:description" content="1.摇一摇功能的实现： 在viewDidLoad方法中调用： 1 [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES]; 在viewWillAppear方法中调用： 1 [self becomeFirstResponder]; 为了防止意外发生，需要在v" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/" />
+
+
+
+<meta property="article:published_time" content="2017-03-03T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-03-03T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="iOS摇一摇截屏功能的实现">
+<meta itemprop="description" content="1.摇一摇功能的实现： 在viewDidLoad方法中调用： 1 [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES]; 在viewWillAppear方法中调用： 1 [self becomeFirstResponder]; 为了防止意外发生，需要在v">
+
+
+<meta itemprop="datePublished" content="2017-03-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="419">
+
+
+
+<meta itemprop="keywords" content="iOS,开发tips," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOS摇一摇截屏功能的实现"/>
+<meta name="twitter:description" content="1.摇一摇功能的实现： 在viewDidLoad方法中调用： 1 [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES]; 在viewWillAppear方法中调用： 1 [self becomeFirstResponder]; 为了防止意外发生，需要在v"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">grq186</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a><a href="https://gohugo.io">
+        <li class="mobile-menu-item">external-link</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      grq186
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">Home</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/about/">About</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://gohugo.io" rel="noopener" target="_blank">
+              external-link
+            <i class="iconfont icon-new-window"></i>
+            </a>
+          
+
+        
+
+      </li>
+    
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">iOS摇一摇截屏功能的实现</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-03 </span>
+        <div class="post-category">
+            
+              <a href="/categories/ios%E5%BC%80%E5%8F%91/"> ios开发 </a>
+            
+          </div>
+        <span class="more-meta">  </span>
+        <span class="more-meta">  </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-摇一摇功能的实现">1.摇一摇功能的实现：</a></li>
+<li><a href="#2-屏幕截图功能的实现">2.屏幕截图功能的实现：</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h3 id="1-摇一摇功能的实现">1.摇一摇功能的实现：</h3>
+
+<p>在viewDidLoad方法中调用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];</pre></td></tr></table>
+</div>
+</div>
+<p>在viewWillAppear方法中调用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[self becomeFirstResponder];</pre></td></tr></table>
+</div>
+</div>
+<p>为了防止意外发生，需要在viewWillDisappear方法中调用:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[self resignFirstResponder];</pre></td></tr></table>
+</div>
+</div>
+<p>实现和摇一摇相关的三个方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#pragma mark - ShakeToEdit
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+  //手机震动
+  dispatch_queue_t queue = dispatch_queue_create(&#34;shake&#34;, NULL);
+  dispatch_async(queue, ^{
+    [self shake];
+  });
+    
+}
+
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+  NSLog(@&#34;cancel&#34;);
+  
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+  UIImage *image = [self  screenshot];
+  
+  if(image){
+    [ShowView showWithImage:image AndSaveClick:^{
+      [self saveImageToPhotos:image];
+    }];
+  }
+}</pre></td></tr></table>
+</div>
+</div>
+<h3 id="2-屏幕截图功能的实现">2.屏幕截图功能的实现：</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#pragma mark - ScreenShot
+-(UIImage *)screenshot{
+  
+  UIView *view = self.view;
+  //  float scale = [[UIScreenmainScreen] scale];//得到设备的分辨率
+  //  scale = 1; 的时候是代表当前设备是320*480的分辨率（就是iphone4之前的设备）
+  //  scale = 2; 的时候是代表分辨率为640*960的分辨率
+  
+  //绘图
+  //第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了，关键就是第三个参数。
+  UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, [UIScreen mainScreen].scale);
+  //渲染
+  [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+  //生产图片
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();    
+  return image;
+}</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/ios/">iOS</a>
+          
+          <a href="/tags/%E5%BC%80%E5%8F%91tips/">开发tips</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/how-to-become-a-better-programmer/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">变成一个更好的开发者的几点建议</span>
+            <span class="prev-text nav-mobile"></span>
+          </a>
+        
+          <a class="next" href="/post/js%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/">
+            <span class="next-text nav-default">js获取字符串中最长单词长度的3种方法</span>
+            <span class="prev-text nav-mobile"></span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+      
+    </div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    function load_disqus() {
+        
+        
+        if (window.location.hostname === 'localhost') return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ugosunny';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        $('#load_disqus').remove();
+    };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-stack-overflow"
+        title="stack-overflow" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-twitter"
+        title="twitter" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-facebook"
+        title="facebook" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-linkedin"
+        title="linkedin" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-google"
+        title="google" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-weibo"
+        title="weibo" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-zhihu"
+        title="zhihu" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-douban"
+        title="douban" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-pocket"
+        title="pocket" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-tumblr"
+        title="tumblr" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-instagram"
+        title="instagram" target="_blank">
+      </a>
+      <a href="http://en.xianmin.org/hugo-theme-jane/" rel="me noopener" class="iconfont icon-gitlab"
+        title="gitlab" target="_blank">
+      </a>
+      <a href="http://en.xianmin.org/hugo-theme-jane/" rel="me noopener" class="iconfont icon-goodreads"
+        title="goodreads" target="_blank">
+      </a>
+  <a href="http://GoldenRocking.github.io/index.xml" rel="noopener" type="application/rss+xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2014 -
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">grq186</span></span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+
+</body>
+</html>
