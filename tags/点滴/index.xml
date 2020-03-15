@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>点滴 on grq186 的Blog - 日出东方，唯我不败</title>
+    <link>https://GoldenRocking.github.io/tags/%E7%82%B9%E6%BB%B4/</link>
+    <description>Recent content in 点滴 on grq186 的Blog - 日出东方，唯我不败</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://GoldenRocking.github.io/tags/%E7%82%B9%E6%BB%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>20200315</title>
+      <link>https://GoldenRocking.github.io/post/20200315/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://GoldenRocking.github.io/post/20200315/</guid>
+      <description>使用番茄工作法，让自己做一件事的时候更专注</description>
+    </item>
+    
+  </channel>
+</rss>

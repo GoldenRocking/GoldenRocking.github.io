@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on grq186 的Blog - 日出东方，唯我不败</title>
-    <link>http://GoldenRocking.github.io/categories/</link>
+    <link>https://GoldenRocking.github.io/categories/</link>
     <description>Recent content in Categories on grq186 的Blog - 日出东方，唯我不败</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     
-	<atom:link href="http://GoldenRocking.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://GoldenRocking.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ios开发</title>
-      <link>http://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</link>
+      <link>https://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>前端开发</title>
-      <link>http://GoldenRocking.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
+      <link>https://GoldenRocking.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
       <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://GoldenRocking.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>程序员</title>
-      <link>http://GoldenRocking.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/</link>
+      <link>https://GoldenRocking.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/</guid>
+      <guid>https://GoldenRocking.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%91%98/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>grq186 的Blog - 日出东方，唯我不败</title>
-    <link>http://GoldenRocking.github.io/</link>
+    <link>https://GoldenRocking.github.io/</link>
     <description>Recent content on grq186 的Blog - 日出东方，唯我不败</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
     
-        <atom:link href="http://GoldenRocking.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://GoldenRocking.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>http://GoldenRocking.github.io/about/</link>
+      <link>https://GoldenRocking.github.io/about/</link>
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
-      <guid>http://GoldenRocking.github.io/about/</guid>
+      <guid>https://GoldenRocking.github.io/about/</guid>
       
         <description>&lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
 
@@ -35,11 +35,25 @@
     </item>
     
     <item>
+      <title>20200315</title>
+      <link>https://GoldenRocking.github.io/post/20200315/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://GoldenRocking.github.io/post/20200315/</guid>
+      
+        <description>
+
+&lt;h2 id=&#34;使用番茄工作法-让自己做一件事的时候更专注&#34;&gt;使用番茄工作法，让自己做一件事的时候更专注&lt;/h2&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>iOS模拟器录屏</title>
-      <link>http://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</link>
+      <link>https://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</guid>
+      <guid>https://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</guid>
       
         <description>
 
@@ -61,10 +75,10 @@
     
     <item>
       <title>变成一个更好的开发者的几点建议</title>
-      <link>http://GoldenRocking.github.io/post/how-to-become-a-better-programmer/</link>
+      <link>https://GoldenRocking.github.io/post/how-to-become-a-better-programmer/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/how-to-become-a-better-programmer/</guid>
+      <guid>https://GoldenRocking.github.io/post/how-to-become-a-better-programmer/</guid>
       
         <description>
 
@@ -117,10 +131,10 @@ Web开发？试着写一个Android程序吧。原生开发？试着写一个分�
     
     <item>
       <title>iOS摇一摇截屏功能的实现</title>
-      <link>http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <link>https://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Fri, 03 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>https://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
       
         <description>
 
@@ -262,10 +276,10 @@ Web开发？试着写一个Android程序吧。原生开发？试着写一个分�
     
     <item>
       <title>js获取字符串中最长单词长度的3种方法</title>
-      <link>http://GoldenRocking.github.io/post/js%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <link>https://GoldenRocking.github.io/post/js%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/js%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://GoldenRocking.github.io/post/js%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E9%95%BF%E5%BA%A6%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
       
         <description>
 
@@ -359,10 +373,10 @@ return Math.max(p, c);
     
     <item>
       <title>html中style的优先级(覆盖关系)</title>
-      <link>http://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</link>
+      <link>https://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</guid>
+      <guid>https://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/</guid>
       
         <description>&lt;p&gt;html中的元素可以通过设置class和id来赋予style属性。&lt;/p&gt;
 
@@ -436,10 +450,10 @@ return Math.max(p, c);
     
     <item>
       <title>html中color 的四种表示方法</title>
-      <link>http://GoldenRocking.github.io/post/html%E4%B8%ADcolor%E7%9A%84%E5%9B%9B%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/</link>
+      <link>https://GoldenRocking.github.io/post/html%E4%B8%ADcolor%E7%9A%84%E5%9B%9B%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/html%E4%B8%ADcolor%E7%9A%84%E5%9B%9B%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://GoldenRocking.github.io/post/html%E4%B8%ADcolor%E7%9A%84%E5%9B%9B%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/</guid>
       
         <description>
 

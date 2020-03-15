@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ios开发 on grq186 的Blog - 日出东方，唯我不败</title>
-    <link>http://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</link>
+    <link>https://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/</link>
     <description>Recent content in Ios开发 on grq186 的Blog - 日出东方，唯我不败</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 23 Apr 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://GoldenRocking.github.io/categories/ios%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iOS模拟器录屏</title>
-      <link>http://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</link>
+      <link>https://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</link>
       <pubDate>Mon, 23 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</guid>
+      <guid>https://GoldenRocking.github.io/post/ios%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%BD%95%E5%B1%8F/</guid>
       <description>1. 在终端 cd 到文件要保存的文件夹 2.运行命令： 1 xcrun simctl io booted recordVideo filename.mov 3.停止录屏：control + C</description>
     </item>
     
     <item>
       <title>iOS摇一摇截屏功能的实现</title>
-      <link>http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <link>https://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Fri, 03 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>https://GoldenRocking.github.io/post/ios%E6%91%87%E4%B8%80%E6%91%87%E6%88%AA%E5%B1%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
       <description>1.摇一摇功能的实现： 在viewDidLoad方法中调用： 1 [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES]; 在viewWillAppear方法中调用： 1 [self becomeFirstResponder]; 为了防止意外发生，需要在v</description>
     </item>
     

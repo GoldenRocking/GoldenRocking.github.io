@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://GoldenRocking.github.io/sitemap.xml
+Sitemap: https://GoldenRocking.github.io/sitemap.xml
