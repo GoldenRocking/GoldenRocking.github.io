@@ -34,7 +34,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.40.2" />
+<meta name="generator" content="Hugo 0.67.0" />
 
 
 <link rel="canonical" href="https://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/" />
@@ -62,35 +62,17 @@
 <meta property="og:description" content="html中的元素可以通过设置class和id来赋予style属性。 多个元素可以同属一个class。 一个id只能赋值给一个元素。 当给一个元素赋" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://GoldenRocking.github.io/post/html%E4%B8%ADstyle%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/" />
-
-
-
-<meta property="article:published_time" content="2017-02-17T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2017-02-17T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-02-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-02-17T00:00:00+00:00" />
 <meta itemprop="name" content="html中style的优先级(覆盖关系)">
 <meta itemprop="description" content="html中的元素可以通过设置class和id来赋予style属性。 多个元素可以同属一个class。 一个id只能赋值给一个元素。 当给一个元素赋">
-
-
 <meta itemprop="datePublished" content="2017-02-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-02-17T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="407">
 
 
 
-<meta itemprop="keywords" content="html,开发tips," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="html,开发tips," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="html中style的优先级(覆盖关系)"/>
 <meta name="twitter:description" content="html中的元素可以通过设置class和id来赋予style属性。 多个元素可以同属一个class。 一个id只能赋值给一个元素。 当给一个元素赋"/>
 
@@ -231,78 +213,68 @@
 <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title"></h2>
   <div class="post-toc-content">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
 
     
     <div class="post-content">
       <p>html中的元素可以通过设置class和id来赋予style属性。</p>
-
 <p>多个元素可以同属一个class。</p>
-
 <p>一个id只能赋值给一个元素。</p>
-
 <p>当给一个元素赋予一个class的时候，它便拥有了class所给予它的style。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div class = &#34;class1&#34;&gt;&lt;/div&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;div class = &#34;class1&#34;&gt;&lt;/div&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<hr />
-
+</div><hr>
 <p>一个元素可以被赋予多个class：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div class=&#34;class1 class2 class3&#34;&gt;&lt;/div&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;div class=&#34;class1 class2 class3&#34;&gt;&lt;/div&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果这些class的style有重合的话，后面赋予的class会把前面class的style中重合的部分给替换掉。</p>
-
-<hr />
-
+</div><p>如果这些class的style有重合的话，后面赋予的class会把前面class的style中重合的部分给替换掉。</p>
+<hr>
 <p>如果标签的id和该class中的style有重合的话，重合部分的style会使用id的style：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div class=&#34;class1 class2 class3&#34; id=&#34;id1&#34;&gt;&lt;/div&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;div class=&#34;class1 class2 class3&#34; id=&#34;id1&#34;&gt;&lt;/div&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>此时，该元素起效的是id赋予的style。</p>
-
-<hr />
-
+</div><p>此时，该元素起效的是id赋予的style。</p>
+<hr>
 <p>也可以直接给元素赋予style：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;div class=&#34;class1 class2 class3&#34; id=&#34;id1&#34; style=&#34;color:red&#34;&gt;</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;div class=&#34;class1 class2 class3&#34; id=&#34;id1&#34; style=&#34;color:red&#34;&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>此时，直接赋值的style会把class和id中的重合部分给替换掉。</p>
-
-<hr />
-
+</div><p>此时，直接赋值的style会把class和id中的重合部分给替换掉。</p>
+<hr>
 <p>在class和id中设置style的时候有一个用法是：!import</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">如：. class1{  color:red  !import }</pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">如：. class1{  color:red  !import }
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果有 !import属性存在的话，它将拥有最高优先级。会覆盖其他方法设置的style属性。</p>
+</div><p>如果有 !import属性存在的话，它将拥有最高优先级。会覆盖其他方法设置的style属性。</p>
 
     </div>
 
