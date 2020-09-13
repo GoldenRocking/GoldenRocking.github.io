@@ -7,15 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>grq186</copyright>
+<<<<<<< HEAD
     <lastBuildDate>Sat, 06 Jun 2020 00:00:00 +0000</lastBuildDate>
+=======
+    <lastBuildDate>Mon, 16 Mar 2020 00:00:00 +0000</lastBuildDate>
+>>>>>>> acf773d6a3956bfd1834ebb307445375d3be069f
     
 	<atom:link href="https://GoldenRocking.github.io/tags/%E7%82%B9%E6%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< HEAD
       <title>20200606</title>
       <link>https://GoldenRocking.github.io/post/20200606/</link>
       <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+=======
+      <title>20200316</title>
+      <link>https://GoldenRocking.github.io/post/20200316/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://GoldenRocking.github.io/post/20200316/</guid>
+      <description>想做一件事的时候，尽管去做 不要考虑太多，大不了就是后果自负 一旦错过，连负责任的机会都没有 选择多姿多彩，拒绝平淡无奇 积极主动的实现自己心中所想</description>
+    </item>
+    
+    <item>
+      <title>20200315</title>
+      <link>https://GoldenRocking.github.io/post/20200315/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+>>>>>>> acf773d6a3956bfd1834ebb307445375d3be069f
       
       <guid>https://GoldenRocking.github.io/post/20200606/</guid>
       <description>😴 𝓖𝓸𝓸𝓭 𝓷𝓲𝓰𝓱𝓽 你要相信 和对的人在一起 真的可以扫落你生命里的尘埃 让你即使身陷谷底 也可以一抬头 就看见满满灿烂的星光。</description>
@@ -190,6 +209,15 @@
       
       <guid>https://GoldenRocking.github.io/post/20200403/</guid>
       <description>别怕抛弃过去，别怕重头开始。 你要学会接受自己，你要爱自己啊。别怕抛弃过去，别怕从头开始。人是不能依附于他人存在的，你要先独立，才能爱和被爱啊</description>
+    </item>
+    
+    <item>
+      <title>20200314</title>
+      <link>https://GoldenRocking.github.io/post/20200314/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://GoldenRocking.github.io/post/20200314/</guid>
+      <description>“不忘初心，方得始终” 它还有下一句&amp;hellip; “初心易得，始终难守”</description>
     </item>
     
   </channel>
