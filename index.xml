@@ -1,11 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>grq186 的Blog - 日出东方，唯我不败</title>
+    <title>R 的Blog - 日出东方，唯我不败</title>
     <link>https://GoldenRocking.github.io/</link>
-    <description>Recent content on grq186 的Blog - 日出东方，唯我不败</description>
+    <description>Recent content on R 的Blog - 日出东方，唯我不败</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <copyright>grq186</copyright>
+    <copyright>guorruiqing</copyright>
     <lastBuildDate>Sun, 20 Aug 2017 21:38:52 +0800</lastBuildDate>
     
         <atom:link href="https://GoldenRocking.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -34,7 +34,7 @@
     <item>
       <title>Posts</title>
       <link>https://GoldenRocking.github.io/post/</link>
-      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://GoldenRocking.github.io/post/</guid>
       

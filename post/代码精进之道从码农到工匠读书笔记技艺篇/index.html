@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>《代码精进之道：从码农到工匠》读书笔记(技艺篇) - R 的Blog - 日出东方，唯我不败</title>
+  <link rel="alternate" hreflang="zh-cn" href="https://GoldenRocking.github.io/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Rocky" />
+  <meta name="description" content="技艺篇: 一、命名 命名为什么难呢？因为命名的过程本身就是一个抽象和思考的过程，在工作中，当我们不能给一个模块、一个对象、一个函数，甚至一个变量" />
+
+  <meta name="keywords" content="grq186, iOS, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.0" />
+
+
+<link rel="canonical" href="https://GoldenRocking.github.io/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%8A%80%E8%89%BA%E7%AF%87/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="《代码精进之道：从码农到工匠》读书笔记(技艺篇)" />
+<meta property="og:description" content="技艺篇: 一、命名 命名为什么难呢？因为命名的过程本身就是一个抽象和思考的过程，在工作中，当我们不能给一个模块、一个对象、一个函数，甚至一个变量" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://GoldenRocking.github.io/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%8A%80%E8%89%BA%E7%AF%87/" />
+<meta property="article:published_time" content="2020-10-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-27T00:00:00+00:00" />
+<meta itemprop="name" content="《代码精进之道：从码农到工匠》读书笔记(技艺篇)">
+<meta itemprop="description" content="技艺篇: 一、命名 命名为什么难呢？因为命名的过程本身就是一个抽象和思考的过程，在工作中，当我们不能给一个模块、一个对象、一个函数，甚至一个变量">
+<meta itemprop="datePublished" content="2020-10-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-10-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="7576">
+
+
+
+<meta itemprop="keywords" content="开发tips," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《代码精进之道：从码农到工匠》读书笔记(技艺篇)"/>
+<meta name="twitter:description" content="技艺篇: 一、命名 命名为什么难呢？因为命名的过程本身就是一个抽象和思考的过程，在工作中，当我们不能给一个模块、一个对象、一个函数，甚至一个变量"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">日出东方，唯我不败</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      日出东方，唯我不败
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">Home</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/about/">About</a>
+          
+
+        
+
+      </li>
+    
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《代码精进之道：从码农到工匠》读书笔记(技艺篇)</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-27 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"> 程序猿 </a>
+            
+          </div>
+        <span class="more-meta">  </span>
+        <span class="more-meta">  </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#技艺篇">技艺篇:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="技艺篇">技艺篇:</h3>
+<blockquote>
+<h5 id="一命名">一、命名</h5>
+<ol>
+<li>
+<p>命名为什么难呢？因为命名的过程本身就是一个抽象和思考的过程，在工作中，当我们不能给一个模块、一个对象、一个函数，甚至一个变量找到合适的名称的时候，往往说明我们对问题的理解还不够透彻，需要重新去挖掘问题的本质，对问题域进行重新分析和抽象，有时还要调整设计和重构代码。因此，好的命名是我们写出好代码的基础。</p>
+</li>
+<li>
+<p>变量名应该是名词，能够正确地描述业务，有表达力。如果一个变量名需要注释来补充说明，那么很可能说明命名就有问题。</p>
+</li>
+<li>
+<p>函数命名要具体，空泛的命名没有意义。例如，processData()就不是一个好的命名，因为所有的方法都是对数据的处理，这样的命名并没有表明要做的事情</p>
+</li>
+<li>
+<p>函数的命名要体现做什么，而不是怎么做。假如我们将雇员信息存储在一个栈中，现在要从栈中获取最近存储的一个雇员信息，那么getLatestEmployee()就比popRecord()要好。</p>
+</li>
+<li>
+<p>实体类承载了核心业务数据和核心业务逻辑，其命名要充分体现业务语义，并在团队内达成共识，如Customer、Bank和Employee等。</p>
+</li>
+<li>
+<p>辅助类是辅佐实体类一起完成业务逻辑的，其命名要能够通过后缀来体现功能。</p>
+</li>
+<li>
+<p>对于辅助类，尽量不要用Helper、Util之类的后缀，因为其含义太过笼统，容易破坏SRP（单一职责原则）。</p>
+</li>
+<li>
+<p>包（Package）代表了一组有关系的类的集合，起到分类组合和命名空间的作用。包名应该能够反映一组类在更高抽象层次上的联系。包的命名要适中，不能太抽象，也不能太具体。</p>
+</li>
+<li>
+<p>每个概念对应一个词，并且一以贯之。例如，fetch、retrieve、get、find和query都可以表示查询的意思，如果不加约定地给多个类中的同种查询方法命名，你怎么记得是哪个类中的哪个方法呢？</p>
+</li>
+<li>
+<p>遵守对仗词的命名规则有助于保持一致性，从而提高代码的可读性。像first/last这样的对仗词就很容易理解；而像fileOpen()和fClose()这样的组合则不对称，容易使人迷惑。</p>
+</li>
+<li>
+<p>很多程序中会有表示计算结果的变量，例如总额、平均值、最大值等。如果你要用类似Total、Sum、Average、Max、Min这样的限定词来修改某个命名，那么记住把限定词加到名字的最后，并在项目中贯彻执行，保持命名风格的一致性。</p>
+</li>
+<li>
+<p>统一业务语言,统一技术语言</p>
+</li>
+<li>
+<p>好的代码是最好的文档</p>
+</li>
+<li>
+<p>使用设计模式语言也是代码自明的重要手段之一，在技术人员之间共享和使用设计模式语言，可以极大地提升沟通的效率。当然，前提是大家都要理解和熟悉这些模式，否则就会变成“鸡同鸭讲”。</p>
+</li>
+<li>
+<p>别给糟糕的代码加注释——重新写吧。</p>
+</li>
+<li>
+<p>在写注释时，你应该自省自己是否在表达能力上存在不足，真正的高手是尽量不写注释。</p>
+</li>
+<li>
+<p>注释要能够解释代码背后的意图，而不是对功能的简单重复。</p>
+</li>
+<li>
+<p>当你不知道如何优雅地给变量命名时，可以使用命名工具，快速搜索大型项目中的变量命名，看其他大型项目源码是如何命名的。</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="二规范">二、规范</h5>
+<ol>
+<li>所谓认知，是指人们获得知识或应用知识的过程。获得知识是要学习的，在学习过程中，我们要交的学费叫作认知成本。</li>
+<li>混乱的代价在于让我们对事物无法形成有效的记忆和认知，导致我们每次面对的问题都是新问题，每次面临的场景都是新场景，又要重新理解一遍。</li>
+<li>代码格式，可能会因为语言和个人偏好而不同，但是一个团队最好是选定一种格式，因为一致性可以减少复杂度。</li>
+<li>将概念相关的代码放在一起：相关性越强，彼此之间的距离应该越短。</li>
+<li>语言的命名风格多样，无可厚非，但是在同一种语言中，如果使用多种语言的命名风格，就会令其他开发工程师反感。</li>
+<li>开发人员应在一开始就养成良好的撰写日志的习惯，并在实际的开发工作中为写日志预留足够的时间。</li>
+<li>详细的日志输出级别分为OFF、FATAL、ERROR、WARN、INFO、DEBUG、ALL或者自定义的级别。我认为比较有用的4个级别依次是ERROR、WARN、INFO和DEBUG。</li>
+<li>在业务系统中设定两个异常，分别是BizException（业务异常）和SysException（系统异常），而且这两个异常都应该是Unchecked Exception。</li>
+<li>错误码非常重要，一定要在系统搭建之初就制定好相应的规范，否则当系统上线后，系统的错误码已经对前端或者外部系统进行了透出，再重构的可能性就很小了。</li>
+<li>从某种意义上来说，架构就是一组约束，遵从了这些约束，才能符合架构要求；反之，架构将失去意义。</li>
+<li>任何一种已存在的不良现象都在传递着一种信息，会导致不良现象无限扩展，同时必须高度警觉那些看起来是偶然的、个别的、轻微的“过错”，如果对“过错”不闻不问、熟视无睹、反应迟钝或纠正不力，就会纵容更多的人“去打烂更多的窗户”，极有可能演变成“千里之堤，溃于蚁穴”的恶果。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="三-函数">三、 函数</h5>
+<ol>
+<li>最理想的参数数量是零（零参数函数），其次是一（一元函数），再次是二（二元函数），应尽量避免三（三元函数）。有足够特殊的理由，才能用3个以上参数（多元函数）。当然凡事也不是绝对的，关键还是看场景，在程序设计中，一大忌讳就是教条。</li>
+<li>函数的第一规则是要短小，第二规则是要更短小。</li>
+<li>超长方法是典型的代码“坏味道”，对超长方法的结构化分解是提升代码可读性最有效的方式之一。</li>
+<li>一个方法只做一件事情，也就是函数级别的单一职责原则.</li>
+<li>遵循SRP不仅可以提升代码的可读性，还能提升代码的可复用性。</li>
+<li>组合函数要求所有的公有函数（入口函数）读起来像一系列执行步骤的概要，而这些步骤的真正实现细节是在私有函数里面。组合函数有助于代码保持精炼并易于复用。</li>
+<li>只有养成精益求精、追求卓越的习惯，才能保持精进，写出好的代码。</li>
+<li>在函数式编程中，函数不仅可以调用函数，也可以作为参数被其他函数调用。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="四-设计原则">四、 设计原则</h5>
+<ol>
+<li>所谓原则，就是一套前人通过经验总结出来的，可以有效解决问题的指导思想和方法论。遵从原则，可以事半功倍。</li>
+<li>SOLID是5个设计原则开头字母的缩写,5个原则分别如下:
+·Single Responsibility Principle（SRP）：单一职责原则。
+·Open Close Principle（OCP）：开闭原则。
+·Liskov Substitution Principle（LSP）：里氏替换原则。
+·Interface Segregation Principle（ISP）：接口隔离原则。
+·Dependency Inversion Principle（DIP）：依赖倒置原则。</li>
+<li>SRP要求每个软件模块职责要单一，衡量标准是模块是否只有一个被修改的原因。职责越单一，被修改的原因就越少，模块的内聚性（Cohesion）就越高，被复用的可能性就越大，也更容易被理解。</li>
+<li>软件实体应该对扩展开放，对修改关闭。对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改关闭，意味着类一旦设计完成，就可以独立完成工作，而不要对其进行任何修改。</li>
+<li>在面向对象设计中，我们通常通过继承和多态来实现OCP，即封装不变部分。对于需要变化的部分，通过接口继承实现的方式来实现“开放”。</li>
+<li>LSP认为“程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的”，即子类应该可以替换任何基类能够出现的地方，并且经过替换后，代码还能正常工作。</li>
+<li>在程序中，通常使用父类来进行定义，如果一个函数只存在子类中，在父类中不提供相应的声明，则无法在以父类定义的对象中使用该函数。可以通过提升抽象层次来解决此问题，也就是将子类中的特有函数用一种更抽象、通用的方式在父类中进行声明。这样在使用父类的地方，就可以透明地使用子类进行替换。</li>
+<li>接口隔离原则认为不能强迫用户去依赖那些他们不使用的接口。换句话说，使用多个专门的接口比使用单一的总接口要好。</li>
+<li>满足ISP之后，最大的好处是可以将外部依赖减到最少。你只需要依赖你需要的东西，这样可以降低模块之间的耦合（Couple）。</li>
+<li>模块之间交互应该依赖抽象，而非实现。DIP要求高层模块不应该依赖于低层模块，二者都应该依赖于抽象。抽象不应该依赖细节，细节应该依赖抽象。</li>
+<li>DRY是Don’t Repeat Yourself的缩写，DRY原则特指在程序设计和计算中避免重复代码，因为这样会降低代码的灵活性和简洁性，并且可能导致代码之间的矛盾。</li>
+<li>系统的每一个功能都应该有唯一的实现。也就是说，如果多次遇到同样的问题，就应该抽象出一个共同的解决方法，不要重复开发同样的功能。</li>
+<li>YAGNI（You Ain’t Gonna Need It）的意思是“你不会需要它”，出自Ron Jeffries的Extreme Programming Installed一书。是指你自以为有用的功能，实际上都是用不到的。因此，除了核心的功能之外，其他的功能一概不要提前设计，这样可以大大加快开发进程。它背后的指导思想就是尽可能快、尽可能简单地让软件运行起来。</li>
+<li>Rule of Three也被称为“三次原则”，是指当某个功能第三次出现时，就有必要进行“抽象化”了。</li>
+<li>KISS（Keep It Simple and Stupid）最早由Robert S. Kaplan在著名的平衡计分卡理论中提出。他认为把事情变复杂很简单，把事情变简单很复杂。好的目标不是越复杂越好，反而是越简洁越好。</li>
+<li>真正的“简单”绝不是毫无设计感，上来就写代码，而是“宝剑锋从磨砺出”，亮剑的时候犹如一道华丽的闪电，背后却有着大量的艰辛和积累。真正的简单，不是不思考，而是先发散、再收敛。在纷繁复杂中，把握问题的核心。</li>
+<li>POLA（Principle of least astonishment）是最小惊奇原则，写代码不是写侦探小说，要的是简单易懂，而不是时不时冒出个“Surprise”。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="五-设计模式">五、 设计模式</h5>
+<ol>
+<li>设计模式（Design Pattern）是一套代码设计经验的总结，并且该经验必须能被反复使用，被多数人认可和知晓。设计模式描述了在软件设计过程中的一些不断重复发生的问题，以及该问题的解决方案，具有一定的普遍性，可以反复使用。其目的是提高代码的可重用性、可读性和可靠性。</li>
+<li>模式具有一般性、简单性、重复性、结构性、稳定性和可操作性等特征。</li>
+<li>根据模式所完成的工作类型来划分，模式可分为创建型模式、结构型模式和行为型模式 。
+（1）创建型模式：用于描述“怎样创建对象”，主要特点是“将对象的创建与使用分离”。GoF中提供了单例、原型、工厂方法、抽象工厂、建造者5种创建型模式。
+（2）结构型模式：用于描述如何将类或对象按某种布局组成更大的结构，GoF中提供了代理、适配器、桥接、装饰、外观、享元、组合7种结构型模式。
+（3）行为型模式：用于描述类或对象之间怎样相互协作共同完成单个对象无法单独完成的任务，以及怎样分配职责。GoF中提供了模板方法、策略、命令、职责链、状态、观察者、中介者、迭代器、访问者、备忘录、解释器11种行为型模式。</li>
+<li>GoF23种设计模式的分类，简要介绍如下:
+（1）单例（Singleton）模式：某个类只能生成一个实例，该类提供了一个全局访问点，以便外部获取该实例，其拓展是有限多例模式。
+（2）原型（Prototype）模式：将一个对象作为原型，通过对其进行复制操作而复制出多个和原型类似的新实例。
+（3）工厂方法（Factory Method）模式：定义一个用于创建产品的接口，由子类决定生产什么产品。
+（4）抽象工厂（AbstractFactory）模式：提供一个创建产品族的接口，其每个子类可以生产一系列相关的产品。
+（5）建造者（Builder）模式：将一个复杂对象分解成多个相对简单的部分，然后根据不同的需要分别创建它们，最后构建成该复杂对象。
+（6）代理（Proxy）模式：为某对象提供一种代理以控制对该对象的访问，即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性。
+（7）适配器（Adapter）模式：将一个类的接口转换成客户希望的另一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。
+（8）桥接（Bridge）模式：将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现的，从而降低了抽象和实现这两个可变维度的耦合度。
+（9）装饰（Decorator）模式：动态地给对象增加一些职责，即增加其额外的功能。
+（10）外观（Facade）模式：为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问。
+（11）享元（Flyweight）模式：运用共享技术来有效地支持大量细粒度对象的复用。
+（12）组合（Composite）模式：将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性。
+（13）模板方法（TemplateMethod）模式：定义一个操作中的算法骨架，将算法的一些步骤延迟到子类中，使子类可以在不改变该算法结构的情况下，重定义该算法的某些特定步骤。
+（14）策略（Strategy）模式：定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的改变不会影响使用算法的客户。
+（15）命令（Command）模式：将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分割开。
+（16）职责链（Chain of Responsibility）模式：把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方式可以去除对象之间的耦合。
+（17）状态（State）模式：允许一个对象在其内部状态发生改变时改变其行为能力。
+（18）观察者（Observer）模式：多个对象间存在一对多关系，当一个对象发生改变时，把这种改变通知给其他多个对象，从而影响其他对象的行为。
+（19）中介者（Mediator）模式：定义一个中介对象来简化原有对象之间的交互关系，降低系统中对象间的耦合度，使原有对象之间不必相互了解。
+（20）迭代器（Iterator）模式：提供一种方法来顺序访问聚合对象中的一系列数据，而不暴露聚合对象的内部表示。
+（21）访问者（Visitor）模式：在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问。
+（22）备忘录（Memento）模式：在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它。
+（23）解释器（Interpreter）模式：提供如何定义语言的文法，以及对语言句子的解释方法，即解释器。</li>
+<li>拦截器模式（Interceptor Pattern），是指提供一种通用的扩展机制，可以在业务操作前后提供一些切面的（Cross-Cutting）的操作。这些切面操作通常是和业务无关的，比如日志记录、性能统计、安全控制、事务处理、异常处理和编码转换等。</li>
+<li>插件（plug-in）模式扩展方式和普通的对象扩展方式的不同之处在于，普通的扩展发生在软件内部，插件式扩展发生在软件外部。插件模式的实现原理和策略模式类似，要求主程序中做好扩展点接口的定义，然后在插件中进行扩展实现。因此，插件模式的难点不在于如何开发插件，而在于如何实现一套完整的插件框架。</li>
+<li>一个典型的管道模式，会涉及以下3个主要的角色。
+（1）阀门：处理数据的节点。
+（2）管道：组织各个阀门。
+（3）客户端：构造管道并调用。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="六-模型">六、 模型</h5>
+<ol>
+<li>模型是对现实世界的简化抽象。</li>
+<li>根据使用场景的不同，模型大致可以分为物理模型、概念模型、数学模型和思维模型等。</li>
+<li>物理模型是拥有体积及重量的物理形态概念实体物件，是根据相似性理论制造的按原系统比例缩小（也可以是放大或与原系统尺寸一样）的实物。</li>
+<li>数学模型是用数学语言描述的一类模型，可以是一个或一组代数方程、微分方程、差分方程、积分方程或统计学方程，也可以是某种适当的组合数学模型。利用这些方程可以定量地或定性地描述系统各变量之间的相互关系或因果关系，来描述系统的行为和特征，而不是系统的实际结构。</li>
+<li>概念模型是对真实世界中问题域内的事物的描述，是领域实体，而不是对软件设计的描述，它和技术无关。概念模型将现实世界抽象为信息世界，把现实世界中的客观对象抽象为某一种信息结构，这种信息结构并不依赖于具体的计算机系统。</li>
+<li>我们把用简单易懂的图形、符号或者结构化语言等表达人们思考和解决问题的形式，统称为思维模型。简单来说，就是我们可以总结出一些能够解决特定问题的“思维套路”，这些套路能帮助我们高效地解决问题。</li>
+<li>在软件领域，影响力最强的建模工具当属统一建模语言（Unified ModelingLanguage，UML）了。UML的目标之一是为开发团队提供标准通用的设计语言来开发和构建计算机应用。</li>
+<li>关于UML的资料和书籍已有很多。需要进一步学习的读者，推荐阅读Grady Booch等人的《面向对象分析与设计》和Larman的《UML和模式应用》这两本书。</li>
+<li>类（Class）封装了数据和行为，是面向对象的重要组成部分，是具有相同属性、操作、关系的对象集合的总称。</li>
+<li>每个类都具有一定的职责，职责指的是类要完成什么样的功能，要承担什么样的义务。</li>
+<li>类图用于描述类以及它们的相互关系。在分析时，我们利用类图来说明实体共同的角色和责任，这些实体提供了系统的行为。在设计时，我们利用类图来记录类的结构，这些类构成了系统的架构。在类图中，两个基本元素是类，以及类之间的关系。</li>
+<li>在UML中，类由包含类名、属性和操作3部分组成，这3部分使用分隔线分隔的矩形表示。</li>
+<li>从本质上来说，软件开发过程就是问题空间到解决方案空间的一个映射转化。</li>
+<li>在问题空间中，我们主要是找出某个业务面临的挑战及其相关需求场景用例分析；而在解决方案空间中，则通过具体的技术工具手段来进行设计实现。</li>
+<li>领域模型在软件开发中的主要起到如下作用。
+·帮助分析理解复杂业务领域问题，描述业务中涉及的实体及其相互之间的关系，是需求分析的产物，与问题域相关。
+·是需求分析人员与用户交流的有力工具，是彼此交流的语言。
+·分析如何满足系统功能性需求，指导项目后续的系统设计。</li>
+<li>敏捷建模方法的重点如下:
+·模型能用来沟通和理解。
+·力争用简单的工具创建简单的模型。
+·我们知道需求是变化的，因此创建模型时要拥抱变化。
+·重点是交付软件，而不是交付模型。模型能带来价值时，我们就使用；如果模型没有价值，不能加速软件的交付，就不创建它们。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="七ddd的精髓">七、DDD的精髓</h5>
+<ol>
+<li>DDD是Eric Evans在2003年出版的《领域驱动设计：软件核心复杂性应对之道》（Domain-Driven Design: Tackling Complexity in the Heart of Software）一书中提出的具有划时代意义的重要概念，是指通过统一语言、业务抽象、领域划分和领域建模等一系列手段来控制软件复杂度的方法论。</li>
+<li>DDD的核心是领域模型，这一方法论可以通俗地理解为先找到业务中的领域模型，以领域模型为中心，驱动项目开发。领域模型的设计精髓在于面向对象分析、对事物的抽象能力，一个领域驱动架构师必然是一个面向对象分析的大师。</li>
+<li>在软件的世界里，任何的方法论如果最终不能落在“减少代码复杂度”这个焦点上，那么都是有待商榷的。</li>
+<li>代码复杂度是由业务复杂度和技术复杂度共同组成的。实践DDD还有一个好处，是让我们有机会分离核心业务逻辑和技术细节，让两个维度的复杂度有机会被解开和分治。</li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/%E5%BC%80%E5%8F%91tips/">开发tips</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%80%9D%E6%83%B3%E7%AF%87/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">《代码精进之道：从码农到工匠》读书笔记(思想篇)</span>
+            <span class="prev-text nav-mobile"></span>
+          </a>
+        
+          <a class="next" href="/post/20201026/">
+            <span class="next-text nav-default">20201026</span>
+            <span class="prev-text nav-mobile"></span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+      
+    </div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    function load_disqus() {
+        
+        
+        if (window.location.hostname === 'localhost') return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ugosunny';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        $('#load_disqus').remove();
+    };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:grq186@163.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+  <a href="https://GoldenRocking.github.io/index.xml" rel="noopener" type="application/rss+xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2014 -
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">guorruiqing</span></span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+
+</body>
+</html>

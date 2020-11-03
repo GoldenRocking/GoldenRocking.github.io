@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>《代码精进之道：从码农到工匠》读书笔记(思想篇) - R 的Blog - 日出东方，唯我不败</title>
+  <link rel="alternate" hreflang="zh-cn" href="https://GoldenRocking.github.io/" />
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="Rocky" />
+  <meta name="description" content="思想篇: 八、抽象 按照维基百科上的解释，抽象是指为了某种目的，对一个概念或一种现象包含的信息进行过滤，移除不相关的信息，只保留与某种最终目的相" />
+
+  <meta name="keywords" content="grq186, iOS, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.67.0" />
+
+
+<link rel="canonical" href="https://GoldenRocking.github.io/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%80%9D%E6%83%B3%E7%AF%87/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="《代码精进之道：从码农到工匠》读书笔记(思想篇)" />
+<meta property="og:description" content="思想篇: 八、抽象 按照维基百科上的解释，抽象是指为了某种目的，对一个概念或一种现象包含的信息进行过滤，移除不相关的信息，只保留与某种最终目的相" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://GoldenRocking.github.io/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%80%9D%E6%83%B3%E7%AF%87/" />
+<meta property="article:published_time" content="2020-10-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-27T00:00:00+00:00" />
+<meta itemprop="name" content="《代码精进之道：从码农到工匠》读书笔记(思想篇)">
+<meta itemprop="description" content="思想篇: 八、抽象 按照维基百科上的解释，抽象是指为了某种目的，对一个概念或一种现象包含的信息进行过滤，移除不相关的信息，只保留与某种最终目的相">
+<meta itemprop="datePublished" content="2020-10-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-10-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4749">
+
+
+
+<meta itemprop="keywords" content="开发tips," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="《代码精进之道：从码农到工匠》读书笔记(思想篇)"/>
+<meta name="twitter:description" content="思想篇: 八、抽象 按照维基百科上的解释，抽象是指为了某种目的，对一个概念或一种现象包含的信息进行过滤，移除不相关的信息，只保留与某种最终目的相"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">日出东方，唯我不败</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      日出东方，唯我不败
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">Home</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/about/">About</a>
+          
+
+        
+
+      </li>
+    
+  </ul>
+</nav>
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">《代码精进之道：从码农到工匠》读书笔记(思想篇)</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-27 </span>
+        <div class="post-category">
+            
+              <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/"> 程序猿 </a>
+            
+          </div>
+        <span class="more-meta">  </span>
+        <span class="more-meta">  </span>
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title"></h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#思想篇">思想篇:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="思想篇">思想篇:</h3>
+<blockquote>
+<h5 id="八抽象">八、抽象</h5>
+<ol>
+<li>按照维基百科上的解释，抽象是指为了某种目的，对一个概念或一种现象包含的信息进行过滤，移除不相关的信息，只保留与某种最终目的相关的信息。
+从另一个角度看，抽象就是简化事物，抓住事物本质的过程。</li>
+<li>抽象帮助我们将现实世界的对象抽象成类，完成从现实世界的概念到计算机世界的模型的映射。</li>
+<li>面向对象的思想主要包括3个方面：面向对象的分析（Object Oriented Analysis，OOA）、面向对象的设计（Object Oriented Design，OOD），以及我们经常提到的面向对象的编程（Object Oriented Programming，OOP）。</li>
+<li>简单来说，抽象的过程就是合并同类项、归并分类和寻找共性的过程。也就是将有内在逻辑关系的事物放在一起，然后给这个分类进行命名，这个名字就代表了这组分类的抽象。</li>
+<li>在开发工作中，很多时候就需要通过抽象层次的提升来提高代码的可读性和通用性。</li>
+<li>为什么阅读书籍比看电视更好呢？因为图像比文字更加具象，阅读的过程可以锻炼我们的抽象能力、想象能力，而看画面时你的大脑会被铺满，较少需要抽象和想象。</li>
+<li>做总结最好的方式就是写文章，小到博文，大到一本书，都是锻炼自己抽象思维和结构化思维的机会。记录也是很好的总结习惯。以读书笔记来说，最好不要原文摘录书中的内容，而是要用自己的话总结归纳，这样不仅可以加深理解，还可以提升自己的抽象思维能力。</li>
+<li>对于技术人员来说，还有一个非常好的提升抽象能力的手段——领域建模。当我们对问题域进行分析、整理和抽象时，或对领域进行划分和建模时，实际上都是在锻炼我们的抽象能力。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="九分治">九、分治</h5>
+<ol>
+<li>“分”就是递归地将原问题分解成小问题；“治”则是在解决了各个小问题（各个击破）之后合并小问题的解，从而得到整个问题的解。</li>
+<li>分治法解题的一般步骤如下。
+（1）分解：将要解决的问题划分成若干规模较小的同类问题。
+（2）求解：当子问题划分得足够小时，用较简单的方法解决。
+（3）合并：按原问题的要求，将子问题的解逐层合并，构成原问题的解。</li>
+<li>关于函数分解，在此强调以下两点。
+（1）函数长短是职责单一的充分不必要条件，也就是长函数往往意味着职责不单一，但是短函数也不一定就意味着职责单一。
+（2）在使用组合函数模式时，要注意抽象层次一致性原则（Single Level ofAbstration Principle，SLAP），不同抽象层次的内容放在一起会给人凌乱、逻辑不协调的感觉。</li>
+<li>优雅的代码很少是一次成形的，大部分情况下要经过两次创造：第一遍实现功能，第二遍重构优化。</li>
+<li>重构优化，即在第一遍实现功能的基础上，看一看是否可以做得更好：命名合理吗？职责单一吗？满足OCP吗？函数是否过长？抽象是否合理？</li>
+<li>分层架构的目的是通过分离关注点来降低系统的复杂度，同时满足单一职责、高内聚、低耦合、提高可复用性和降低维护成本，也是一种典型的分治思想。</li>
+<li>所谓竖切，就是按照领域将单体数据库拆分成多个数据库。比如，原来电商数据都是放在一个库中，我们可以按照领域拆分成商品库、会员库、交易库等。</li>
+<li>横切是通过一种数据路由算法对数据进行分片，从而减少一个数据库中的数据量。比如，我们要将会员的交易数据切分成10个库，可以用userId对10进行取模。</li>
+</ol>
+</blockquote>
+<blockquote>
+<h5 id="十技术人的素养">十、技术人的素养</h5>
+<blockquote>
+<ol>
+<li>不教条</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li>批判性思维</li>
+</ol>
+<ul>
+<li>批判性思维（Critical Thinking）是一种谨慎运用推理去断定一个断言是否为真的能力。它要求我们保持思考的自主性和逻辑的严密性，不被动地全盘接受，也不刻意地带着偏见去驳斥一个观点。</li>
+<li>尼尔·布朗写的被誉为批判性思维领域经典读物的《学会提问》，另一本是樊登读书会推荐的《思辨与立场：生活中无处不在的批判性思维工具》</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol>
+<li>成长型思维</li>
+</ol>
+<ul>
+<li>越挫越勇，把每一次失败都当成学习的机会。</li>
+<li>具有成长型思维的人相信自己可以通过学习来提升自我，相信学习和成长的力量，相信努力可以改变智力和能力。</li>
+<li>我们需要具备成长型思维才能应对工作和生活中的压力，这样在遇到问题时，我们才不会轻言放弃，而是会积极主动地去学习，去寻找解决方案。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol>
+<li>结构化思维</li>
+</ol>
+<ul>
+<li>结构化思维的定义就是“逻辑+套路”。</li>
+<li>所谓逻辑，是指结构之间必须是有逻辑关系的。</li>
+<li>组织思想的逻辑只有4种。
+（1）演绎顺序：比如“大前提、小前提、结论”的演绎推理方式就是演绎顺序的。
+（2）时间（步骤）顺序：比如“第一、第二、第三”和“首先、再者、然后”等，大多数的时间顺序同时也是因果顺序。
+（3）空间（结构）顺序：比如“前端、后端、数据”和“波士顿、纽约、华盛顿”等，化整为零（将整体分解为部分）等都是空间顺序。在做空间分解时，要注意满足“相互独立，完全穷尽”（Mutually Exclusive Collectively Exhaustive，MECE）原则。
+（4）程度（重要性）顺序：比如“最重要、次重要、不重要”等。</li>
+<li>套路是指我们解决问题的方法论、路径和经验。</li>
+<li>逻辑是一种能力，而套路是方法论、经验；逻辑属于道，而方法论属于术。二者都很重要，只有熟练地掌握二者，我们才能有更好的结构化思维。</li>
+<li>最清晰和实用的结构化表达是“提出问题，定义问题，分析问题，解决问题，最后展望未来”。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>5 工具化思维</p>
+<ul>
+<li>偷懒也有高低之分，可以分为3个境界。
+（1）最差的境界是“实在懒”，拖延不喜欢的任务。
+（2）其次是“开明懒”，迅速做完不喜欢的任务，以摆脱之。
+（3）最高的境界是“智慧懒”，编写某个工具来完成不喜欢的任务，以便再也不用做这样的事情了，从而一劳永逸。</li>
+<li>“硬干”或“苦干”并没有带着光环，而是一种徒劳、低效、大可不必的努力，只会说明你做事情很急切，但并不是在完成工作。人们容易混淆行动与进展、混淆忙碌与多产的概念。</li>
+<li>在有效的工作中，最重要的是思考，而人在思考时通常看上去不会很忙。如果和我共事的程序员总是忙个不停，我会认为他并非优秀的程序员，因为他没用最有价值的工具——自己的大脑。</li>
+<li>每当你重复同样的工作3次以上，就应该停下来问问自己：我是不是可以通过自动化脚本、配置化，或者小工具来帮助自己提效？</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>6 好奇心</p>
+<ul>
+<li>好奇心是学习的起点，是创新的原动力。我们每个人都应该像小孩子一样保持对知识的渴望，对世界的惊奇。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>7 记笔记</p>
+<ul>
+<li>首先，做笔记的人基本都是持续学习的人；其次，记录本身也有很多好处。
+（1）知识内化：记笔记的过程是一个归纳整理、再理解、再吸收的过程，可以加深我们对知识的理解。
+（2）形成知识体系：零散的知识很容易被遗忘，而形成知识体系之后，知识之间就能有更强的连接。
+（3）方便回顾：笔记就像我们的硬盘，当缓存失效后，我们依然可以通过硬盘调回，保证知识不丢失。</li>
+<li>（1）使用云笔记：云笔记要能在多端使用，要有目录的层次结构、标签和搜索功能。如果有些场合只能用笔做记录，也没关系，回来之后再整理到云笔记上。
+（2）归类分组：要定期回顾笔记内容，尽量按照合理的方式对笔记进行重组，形成一个有逻辑关系的树形结构。这样既方便记忆检索，也可以逐渐形成自己的知识体系。对于归于A组或B组都没错的笔记，可以使用标签来辅助分类。
+（3）不要复制粘贴：好的笔记最好是自己消化后的总结，而不是简单的照抄。如果有引用和参考，建议把链接也放在笔记下面，方便溯源。
+（4）结构化表达：对于简短的内容要重点突出，粗体显示重点部分；对于篇幅较长的内容，最好有目录，这样可以更加结构化地呈现笔记内容。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>8 有目标</p>
+<ul>
+<li>“你要做一个什么样的人”并不是一个可有可无的次要问题，而是首先要回答的头等大问题。</li>
+<li>先想清楚目标，然后努力实现。不管是人生大问题，还是阶段性要完成的事情，都需要目标清晰、有的放矢。</li>
+<li>在这个信息爆炸的时代，如果只是碎片化地接收各个公众号推送的文章，学习效果几乎可以忽略不计。在学习之前，我们一定要问自己，这次学习的目标是什么？</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>9 选择的自由</p>
+<ul>
+<li>自由是一种价值观，是一种为自己过去、现在及未来的行为负责的价值观。自由是一种责任，是一种敢于做出选择，并愿意为自己的选择承担后果的责任。</li>
+<li>责任感（Responsible），从构词法来说是“能够回应（Response—able）”的意思，即选择回应的能力。</li>
+<li>积极主动的人有选择的自由，而消极被动的人往往是被动地接受影响，忘记了自己的主观能动性，忘记了在刺激和回应之间还有选择的自由</li>
+<li>但凡成大事者，都能够“处乱世而不惊，临虚空而不惧，喜迎阴晴圆缺，笑傲雨雪风霜”。正因为他们是自己思维的主人，而不是被思维所控制，他们知道不管身处什么样的境地，都有“选择的自由”。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>10 平和的心态</p>
+<ul>
+<li>首先，我们做事情的出发点必须是善的。其次，“有为的事”是指要认真做事，认真生活；“无为的心”代表一种平和的心态，一种活在当下的智慧。也就是做事要积极，但是心态要放平。</li>
+<li>真正平和的人了解自己所有的主观感受都只是一瞬间的波动。虽然疼痛，但不再感到悲惨；虽然愉悦，但不再干扰心灵的平静。于是，心灵变得一片澄明、自在。心灵平静的力量十分强大，那些穷极一生疯狂追求愉悦心情的人完全难以想象。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>11 精进</p>
+<ul>
+<li>
+<p>精进就是你每天必须进步一点点！</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/131651-fcff71ba27744582.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/484/format/webp" alt="img"></p>
+<p>image.png</p>
+</li>
+<li>
+<p>巴菲特说：“人生就像滚雪球，关键是要找到足够湿的雪，和足够长的坡。”</p>
+</li>
+<li>
+<p>但凡能持续学习和精进的人，其结果都不会差。</p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<h5 id="十一技术leader的修养">十一、技术Leader的修养</h5>
+<blockquote>
+<h6 id="技术氛围">技术氛围</h6>
+<ul>
+<li>代码好坏味道</li>
+<li>技术分享</li>
+<li>CR周报</li>
+<li>读书会</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="目标管理">目标管理</h6>
+<ul>
+<li>一个好的Leader，应该是愿意花时间和下属一起讨论、制定目标的。在过程中，给予帮助和指导，及时对焦纠偏，确保目标的达成。</li>
+<li>目标管理的常见手段有关键绩效指标（Key Performance Index，KPI）和目标与关键成果（Objectives Key Results，OKR）两种方法。相比较而言，一味地追求KPI，可能会导致短视；OKR更注重短期利益和长期战略之间的平衡。</li>
+<li>OKR主要有如下两个特点。
+（1）OKR可以不和绩效挂钩，主要强调沟通和方向。
+（2）OKR比KPI多了一个层级的概念，O（Objective）是要有野心的、有一定的模糊性，但是KR（Key Results）需要是可量化的，并且KR一定要为O服务，不能偏离O的方向。</li>
+<li>SMART原则 : S代表Specific，表示指标要具体；M代表Measurable，表示指标要可衡量；A代表Attainable，表示指标是有可能达成的；R代表Relevant，表示KR和O要有一定的相关性；最后，T代表Time bound，表示指标必须具有明确的截止期限。</li>
+<li>OKR中的目标必须是有野心的。因为只有高远的目标，才能最大程度地激发人的潜能。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="技术规划">技术规划</h6>
+<ul>
+<li>技术规划更多的是从团队视角去看接下来要做的事情，而目标管理是要把规划要做的事情进行拆解，和个人目标对齐。</li>
+<li>第一层问题解决是最直接的，主要看团队中现在有什么迫切、紧急的问题需要解决，有哪些坑要去填。</li>
+<li>技术领域要做的是在这些常规领域中，根据业务情况和团队情况选择一些领域和命题（比如稳定、性能、效率等），并在这些命题和方向中根据优先级做判断。</li>
+<li>让业务先赢是技术的首要使命。</li>
+<li>作为技术团队，我们要对比团队内外技术的异同，最终圈定一个差异化区域。这块区域是团队的特色技术，是团队借外力之外要修内功的部分，是不依赖别人而主要靠自己突破的部分，是团队相比外面的差异化竞争力。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="推理阶梯">推理阶梯</h6>
+<ul>
+<li>“推理阶梯”的发生会经历以下步骤。:
+（1）收集数据
+（2）选择性接收数据
+（3）做出假设，得出结论，采取行动</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="leader和manager的区别">Leader和Manager的区别</h6>
+<ul>
+<li>Manager是管理事务，是控制和权威；而Leader是领导人心，是引领和激发。</li>
+<li>技术Leader是专业性非常强的工作。技术Leader区别于其他Leader之处是你不仅要“以德服人”，还要“以技服人”。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="视人为人">视人为人</h6>
+<ul>
+<li>俗话说“做事先做人”，我们唯有尊重自己，尊重他人，视人为人，视己为人，对团队倾注感情，和团队成员建立信任关系，才有可能做一个好Leader。</li>
+<li>我们做事情的出发点必须要是正的、善的。在这个大前提下，我们可以积极地拓展自己的人脉关系和影响力。</li>
+<li>视人为人不仅是和他人处好关系，也是一种原则和勇气。</li>
+<li>对待上级——有胆量。对待平级——有肺腑。对待下级——有心肝。</li>
+</ul>
+</blockquote>
+</blockquote>
+
+    </div>
+
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/%E5%BC%80%E5%8F%91tips/">开发tips</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/20201027/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">20201027</span>
+            <span class="prev-text nav-mobile"></span>
+          </a>
+        
+          <a class="next" href="/post/%E4%BB%A3%E7%A0%81%E7%B2%BE%E8%BF%9B%E4%B9%8B%E9%81%93%E4%BB%8E%E7%A0%81%E5%86%9C%E5%88%B0%E5%B7%A5%E5%8C%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E6%8A%80%E8%89%BA%E7%AF%87/">
+            <span class="next-text nav-default">《代码精进之道：从码农到工匠》读书笔记(技艺篇)</span>
+            <span class="prev-text nav-mobile"></span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+    
+
+  <div class="disqus-button" id="load_disqus" onclick="load_disqus()">
+      
+    </div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    function load_disqus() {
+        
+        
+        if (window.location.hostname === 'localhost') return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'ugosunny';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+        $('#load_disqus').remove();
+    };
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+
+  
+
+  
+  </article>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:grq186@163.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+  <a href="https://GoldenRocking.github.io/index.xml" rel="noopener" type="application/rss+xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2014 -
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">guorruiqing</span></span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+
+</body>
+</html>
